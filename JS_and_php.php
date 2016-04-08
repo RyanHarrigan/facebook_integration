@@ -3,12 +3,10 @@ namespace Facebook;
 
 require_once __DIR__ . '/src/Facebook/autoload.php';
 
-if (isset($_POST['accessToken'])){
+if (isset($_GET['accessToken'])){
 	
 //use Facebook\FacebookRequest;
 //use Facebook\FacebookApp;
-
-require_once __DIR__ . '/src/Facebook/autoload.php';
 	
 $session = new FacebookApp('{160909570747324}', '{8d76492221315fe6421bb95972046623}');
 
@@ -16,7 +14,7 @@ $session = new FacebookApp('{160909570747324}', '{8d76492221315fe6421bb959720466
 /* make the API call */
 $request = new FacebookRequest(
   $session,
-	$_POST['accessToken'],
+	$_GET['accessToken'],
   'GET',
   '/{221087335084}/members'
 );
@@ -56,11 +54,13 @@ var_dump($graphObject);
 		FB.login(function(response){
 			if(response.authResponse){
 				
-				jQuery.ajax({
+				/*jQuery.ajax({
 					type:'POST',
 					url:'#',
 					data: "accessToken=" + response.authResponse.accessToken
 				});
+				*/
+				window.location.href="/JS_and_php.php?accessToken=" + response.authResponse.accessToken;
 				console.log('You are now logged in, ');
 				FB.api('/me',function(response){
 					console.log(response.name);
