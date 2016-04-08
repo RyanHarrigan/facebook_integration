@@ -60,7 +60,7 @@ var_dump($graphObject);
 					data: "accessToken=" + response.authResponse.accessToken
 				});
 				*/
-				window.location.href="/JS_and_php.php?accessToken=" + response.authResponse.accessToken;
+				window.location.href="JS_and_php.php?accessToken=" + response.authResponse.accessToken;
 				console.log('You are now logged in, ');
 				FB.api('/me',function(response){
 					console.log(response.name);
