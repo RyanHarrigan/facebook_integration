@@ -5,26 +5,27 @@ require_once __DIR__ . '/src/Facebook/autoload.php';
 
 if (isset($_GET['accessToken'])){
 	
-//use Facebook\FacebookRequest;
-//use Facebook\FacebookApp;
-	
-$session = new FacebookApp('{160909570747324}', '{8d76492221315fe6421bb95972046623}');
+	//use Facebook\FacebookRequest;
+	//use Facebook\FacebookApp;
+		
+	$session = new FacebookApp('{160909570747324}', '{8d76492221315fe6421bb95972046623}');
 
-/* PHP SDK v5.0.0 */
-/* make the API call */
-$request = new FacebookRequest(
-  $session,
-	$_GET['accessToken'],
-  'GET',
-  '/{221087335084}/members'
-);
+	/* PHP SDK v5.0.0 */
+	/* make the API call */
+	$request = new FacebookRequest(
+		$session,
+		$_GET['accessToken'],
+		'GET',
+		'/{221087335084}/members'
+	);
 
-$response = $request->execute();
+	$response = $request->execute();
+	var_dump($response);
 
-$graphObject = $response->getGraphObject();
-/* handle the result */
+	$graphObject = $response->getGraphObject();
+	/* handle the result */
 
-var_dump($graphObject);
+	var_dump($graphObject);
 }else{
 
 ?>
