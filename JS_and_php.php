@@ -18,6 +18,8 @@ if (isset($_GET['accessToken'])){
 		'GET',
 		'/{221087335084}/members'
 	);
+	
+	echo "<html><body>";
 
 	$response = $request->execute();
 	var_dump($response);
@@ -26,6 +28,7 @@ if (isset($_GET['accessToken'])){
 	/* handle the result */
 
 	var_dump($graphObject);
+	echo "</html></body>";
 }else{
 
 ?>
